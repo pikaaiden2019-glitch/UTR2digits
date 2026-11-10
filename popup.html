@@ -1,0 +1,44 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <style>
+    body {
+      margin: 0; width: 220px; padding: 14px 16px;
+      background: #0b2545; color: #fff;
+      font: 600 14px/1.5 system-ui, sans-serif;
+    }
+    .row { display: flex; justify-content: space-between; }
+    .muted { opacity: .7; font-size: 12px; font-weight: 500; }
+    #msg { opacity: .8; font-weight: 500; }
+    hr { border: 0; border-top: 1px solid rgba(255,255,255,.2); margin: 12px 0; }
+    label.switch { display: flex; align-items: center; justify-content: space-between; cursor: pointer; font-weight: 500; }
+    .switch input { display: none; }
+    .slider {
+      position: relative; width: 36px; height: 20px; flex: none;
+      background: rgba(255,255,255,.3); border-radius: 10px; transition: background .15s;
+    }
+    .slider::after {
+      content: ""; position: absolute; top: 2px; left: 2px;
+      width: 16px; height: 16px; border-radius: 50%; background: #fff; transition: transform .15s;
+    }
+    .switch input:checked + .slider { background: #3fb950; }
+    .switch input:checked + .slider::after { transform: translateX(16px); }
+  </style>
+</head>
+<body>
+  <div id="msg">Loading…</div>
+  <div id="stats" hidden>
+    <div class="row"><span>Singles</span><b id="singles">—</b></div>
+    <div class="row"><span>Doubles</span><b id="doubles">—</b></div>
+    <div class="row muted" id="threeRow" hidden><span>3-mo avg</span><span id="three">—</span></div>
+  </div>
+  <hr>
+  <label class="switch">
+    <span>Show on page</span>
+    <input type="checkbox" id="replace">
+    <span class="slider"></span>
+  </label>
+  <script src="popup.js"></script>
+</body>
+</html>

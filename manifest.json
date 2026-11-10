@@ -1,0 +1,24 @@
+{
+  "manifest_version": 3,
+  "name": "UTR Decimals",
+  "version": "1.1",
+  "description": "shows utr to 2 decimal points without power, by denden :)",
+  "permissions": ["storage"],
+  "action": {
+    "default_title": "UTR Decimals",
+    "default_popup": "popup.html"
+  },
+  "content_scripts": [
+    {
+      "matches": ["https://app.utrsports.net/*"],
+      "js": ["hook.js"],
+      "run_at": "document_start",
+      "world": "MAIN"
+    },
+    {
+      "matches": ["https://app.utrsports.net/*"],
+      "js": ["bridge.js"],
+      "run_at": "document_start"
+    }
+  ]
+}
